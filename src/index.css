@@ -153,6 +153,88 @@
     -webkit-mask-composite: xor; mask-composite: exclude;
     pointer-events: none;
   }
+
+  /* Liquid glass — refractive, layered, with inner highlight */
+  .liquid-glass {
+    position: relative;
+    background:
+      linear-gradient(135deg, hsl(0 0% 100% / 0.55), hsl(0 0% 100% / 0.18) 40%, hsl(0 0% 100% / 0.4));
+    backdrop-filter: blur(28px) saturate(200%);
+    -webkit-backdrop-filter: blur(28px) saturate(200%);
+    border: 1px solid hsl(0 0% 100% / 0.5);
+    box-shadow:
+      inset 0 1px 0 hsl(0 0% 100% / 0.85),
+      inset 0 -1px 0 hsl(260 60% 30% / 0.08),
+      0 30px 60px -20px hsl(260 50% 20% / 0.25),
+      0 8px 24px -12px hsl(var(--magenta) / 0.25);
+  }
+  .liquid-glass::before {
+    content: '';
+    position: absolute; inset: 0; border-radius: inherit;
+    background:
+      radial-gradient(120% 80% at 0% 0%, hsl(0 0% 100% / 0.55), transparent 50%),
+      radial-gradient(120% 80% at 100% 100%, hsl(var(--cyan) / 0.18), transparent 60%);
+    pointer-events: none;
+    mix-blend-mode: screen;
+  }
+  .liquid-dark {
+    background:
+      linear-gradient(135deg, hsl(260 50% 12% / 0.7), hsl(260 50% 8% / 0.4));
+    backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    border: 1px solid hsl(0 0% 100% / 0.14);
+    box-shadow: inset 0 1px 0 hsl(0 0% 100% / 0.2), 0 30px 60px -20px hsl(260 80% 5% / 0.6);
+  }
+
+  /* Conic shimmer border */
+  .border-conic { position: relative; }
+  .border-conic::before {
+    content: ''; position: absolute; inset: -1.5px; border-radius: inherit;
+    background: conic-gradient(from var(--a, 0deg), hsl(var(--magenta)), hsl(var(--cyan)), hsl(var(--lime)), hsl(var(--sunshine)), hsl(var(--magenta)));
+    z-index: -1;
+    filter: blur(0.5px);
+    animation: spin-slow 8s linear infinite;
+  }
+
+  /* Shine sweep on hover */
+  .shine { position: relative; overflow: hidden; }
+  .shine::after {
+    content: ''; position: absolute; top: 0; left: -120%;
+    width: 60%; height: 100%;
+    background: linear-gradient(120deg, transparent, hsl(0 0% 100% / 0.55), transparent);
+    transform: skewX(-20deg);
+    transition: left .9s ease;
+  }
+  .shine:hover::after { left: 130%; }
+
+  /* Morphing blob shapes */
+  .morph-blob {
+    border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%;
+    animation: morph 14s ease-in-out infinite;
+  }
+
+  /* Tilt-on-hover */
+  .tilt { transition: transform .5s cubic-bezier(.2,.7,.2,1); transform-style: preserve-3d; }
+  .tilt:hover { transform: perspective(900px) rotateX(4deg) rotateY(-6deg) translateY(-4px); }
+
+  /* Dotted academic grid */
+  .academic-grid {
+    background-image:
+      radial-gradient(hsl(var(--ink) / 0.08) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  /* Magazine rule */
+  .editorial-rule {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(var(--ink) / 0.25), transparent);
+  }
+}
+
+@keyframes morph {
+  0%, 100% { border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%; }
+  33% { border-radius: 60% 40% 33% 67% / 58% 38% 62% 42%; }
+  66% { border-radius: 38% 62% 56% 44% / 47% 60% 40% 53%; }
 }
 
 @keyframes marquee {
