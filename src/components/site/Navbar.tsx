@@ -1,7 +1,13 @@
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
-const links = ["Programs", "Campus", "Life", "Research", "Apply"];
+const links = [
+  { label: "Academics", href: "/academics", id: "academics" },
+  { label: "Admissions", href: "/admissions", id: "admissions" },
+  { label: "Research", href: "/research", id: "research" },
+  { label: "Campus Life", href: "/campus", id: "campus" },
+  { label: "About", href: "/about", id: "about" },
+];
 
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -15,30 +21,34 @@ export const Navbar = () => {
 
   return (
     <header className={cn("fixed top-3 inset-x-3 z-50 transition-all duration-500", scrolled && "top-2")}>
-      <nav className={cn("glass-tint mx-auto max-w-6xl rounded-full px-4 sm:px-6 py-3 flex items-center justify-between gap-4")}>
-        <a href="#top" className="flex items-center gap-2 group">
-          <span className="relative inline-flex h-8 w-8 items-center justify-center rounded-full grad-hero text-white font-display font-bold">
+      <nav className={cn("liquid-glass mx-auto max-w-6xl rounded-full px-4 sm:px-6 py-2.5 flex items-center justify-between gap-4")}>
+        <a href="/" className="flex items-center gap-2 group">
+          <span className="relative inline-flex h-9 w-9 items-center justify-center rounded-full grad-hero text-white font-display font-bold shadow-[0_6px_18px_-4px_hsl(var(--magenta)/0.6)]">
             N
             <span className="absolute -top-1 -right-1 h-2.5 w-2.5 rounded-full bg-lime border-2 border-white" />
           </span>
-          <span className="font-display font-bold tracking-tight text-base">
+          <span className="font-display font-bold tracking-tight text-base leading-none">
             nova<span className="text-grad-hero">.uni</span>
+            <span className="block text-[9px] font-medium tracking-[0.18em] uppercase text-muted-foreground mt-0.5">est. 1887</span>
           </span>
         </a>
 
-        <ul className="hidden md:flex items-center gap-1 text-[13px] font-medium">
+        <ul className="hidden md:flex items-center gap-0.5 text-[13px] font-medium">
           {links.map((l) => (
-            <li key={l}>
-              <a href={`#${l.toLowerCase()}`} className="px-3 py-1.5 rounded-full hover:bg-white/60 transition-colors">
-                {l}
+            <li key={l.label}>
+              <a href={`#${l.id}`} className="px-3 py-1.5 rounded-full hover:bg-white/70 transition-colors text-ink">
+                {l.label}
               </a>
             </li>
           ))}
         </ul>
 
         <div className="flex items-center gap-2">
-          <a href="#apply" className="hidden sm:inline-flex items-center gap-1.5 rounded-full grad-hero text-white text-[13px] font-semibold px-4 py-2 hover:scale-[1.03] transition-transform shadow-[0_8px_20px_-6px_hsl(var(--magenta)/0.6)]">
-            Apply now <span aria-hidden>→</span>
+          <a href="#admissions" className="hidden lg:inline-flex items-center gap-1 rounded-full bg-white/80 border border-white text-[13px] font-semibold px-3.5 py-1.5 text-ink hover:bg-white transition-colors">
+            Visit
+          </a>
+          <a href="#admissions" className="hidden sm:inline-flex items-center gap-1.5 rounded-full grad-hero text-white text-[13px] font-semibold px-4 py-2 hover:scale-[1.03] transition-transform shadow-[0_8px_20px_-6px_hsl(var(--magenta)/0.6)]">
+            Apply <span aria-hidden>→</span>
           </a>
           <button
             aria-label="Menu"
@@ -51,17 +61,17 @@ export const Navbar = () => {
       </nav>
 
       {open && (
-        <div className="md:hidden mt-2 mx-auto max-w-6xl glass-tint rounded-3xl p-3 animate-fade-in">
+        <div className="md:hidden mt-2 mx-auto max-w-6xl liquid-glass rounded-3xl p-3 animate-fade-in">
           <ul className="flex flex-col">
             {links.map((l) => (
-              <li key={l}>
-                <a onClick={() => setOpen(false)} href={`#${l.toLowerCase()}`} className="block px-3 py-2 rounded-xl hover:bg-white/70 text-sm font-medium">
-                  {l}
+              <li key={l.label}>
+                <a onClick={() => setOpen(false)} href={`#${l.id}`} className="block px-3 py-2.5 rounded-xl hover:bg-white/70 text-sm font-medium text-ink">
+                  {l.label}
                 </a>
               </li>
             ))}
             <li>
-              <a href="#apply" onClick={() => setOpen(false)} className="mt-2 block text-center rounded-full grad-hero text-white text-sm font-semibold px-4 py-2.5">
+              <a href="#admissions" onClick={() => setOpen(false)} className="mt-2 block text-center rounded-full grad-hero text-white text-sm font-semibold px-4 py-2.5">
                 Apply now →
               </a>
             </li>

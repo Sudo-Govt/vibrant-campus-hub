@@ -2,11 +2,16 @@ import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
 import { AnnouncementMarquee } from "@/components/site/AnnouncementMarquee";
 import { FeatureCards } from "@/components/site/FeatureCards";
+import { Faculties } from "@/components/site/Faculties";
+import { Courses } from "@/components/site/Courses";
 import { ProgramsBento } from "@/components/site/ProgramsBento";
+import { Research } from "@/components/site/Research";
 import { CampusWall } from "@/components/site/CampusWall";
+import { StudentVoices } from "@/components/site/StudentVoices";
 import { Spotlights } from "@/components/site/Spotlights";
 import { EventsCarousel } from "@/components/site/EventsCarousel";
 import { Stats } from "@/components/site/Stats";
+import { Admissions } from "@/components/site/Admissions";
 import { Testimonials } from "@/components/site/Testimonials";
 import { VirtualTour } from "@/components/site/VirtualTour";
 import { NewsGrid } from "@/components/site/NewsGrid";
@@ -22,11 +27,16 @@ const Index = () => {
       <Hero />
       <AnnouncementMarquee />
       <FeatureCards />
+      <Faculties />
+      <Courses />
       <ProgramsBento />
+      <Research />
       <CampusWall />
+      <StudentVoices />
       <Spotlights />
       <EventsCarousel />
       <Stats />
+      <Admissions />
       <Testimonials />
       <VirtualTour />
       <NewsGrid />
