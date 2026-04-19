@@ -2,13 +2,15 @@ import { LazyImage } from "./LazyImage";
 import { Reveal } from "./Reveal";
 
 const floats = [
-  { src: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&q=70", top: "8%", left: "4%", rot: "-8deg", delay: "0s", size: "w-28 h-36 sm:w-40 sm:h-52" },
-  { src: "https://images.unsplash.com/photo-1531545514256-b1400bc00f31?w=400&q=70", top: "14%", right: "5%", rot: "9deg", delay: "1.2s", size: "w-32 h-40 sm:w-44 sm:h-56" },
-  { src: "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=400&q=70", bottom: "10%", left: "7%", rot: "6deg", delay: "0.6s", size: "w-28 h-36 sm:w-40 sm:h-52" },
-  { src: "https://images.unsplash.com/photo-1543269865-cbf427effbad?w=400&q=70", bottom: "16%", right: "4%", rot: "-7deg", delay: "1.8s", size: "w-32 h-40 sm:w-44 sm:h-56" },
+  { src: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&q=70", top: "8%", left: "2%", rot: "-8deg", delay: "0s", size: "w-24 h-32 sm:w-36 sm:h-48" },
+  { src: "https://images.unsplash.com/photo-1531545514256-b1400bc00f31?w=400&q=70", top: "10%", right: "3%", rot: "9deg", delay: "1.2s", size: "w-28 h-36 sm:w-40 sm:h-52" },
+  { src: "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=400&q=70", bottom: "8%", left: "4%", rot: "6deg", delay: "0.6s", size: "w-24 h-32 sm:w-36 sm:h-48" },
+  { src: "https://images.unsplash.com/photo-1543269865-cbf427effbad?w=400&q=70", bottom: "14%", right: "3%", rot: "-7deg", delay: "1.8s", size: "w-28 h-36 sm:w-40 sm:h-52" },
+  { src: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=70", top: "44%", left: "1%", rot: "4deg", delay: "2.4s", size: "hidden lg:block w-24 h-32" },
+  { src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=70", top: "46%", right: "1%", rot: "-5deg", delay: "3s", size: "hidden lg:block w-24 h-32" },
 ];
 
-const majors = ["Computer Science", "Fashion Design", "Astrobiology", "Game Dev", "Marine Bio", "Architecture", "Film", "Neuroscience", "Jazz", "Robotics", "Philosophy", "AI Ethics"];
+const majors = ["Computer Science", "Astrophysics", "Architecture", "Neuroscience", "Comparative Literature", "Quantum Computing", "Public Policy", "Marine Biology", "Film Studies", "Mechanical Engineering", "Philosophy", "Biochemistry", "Jazz Performance", "Data Science"];
 
 export const Hero = () => {
   return (
@@ -37,36 +39,37 @@ export const Hero = () => {
 
       <div className="container relative">
         <Reveal className="text-center max-w-4xl mx-auto">
-          <span className="sticker glass text-ink mb-6">
+          <span className="sticker liquid-glass text-ink mb-6">
             <span className="h-1.5 w-1.5 rounded-full bg-magenta animate-pulse" />
-            Fall '26 applications open
+            Fall '26 applications now open · Early deadline Nov 15
           </span>
           <h1 className="font-display font-bold tracking-tighter text-5xl sm:text-7xl md:text-8xl leading-[0.92]">
-            study. <span className="font-serif-it text-grad-warm">party.</span><br />
-            <span className="text-grad-hero">repeat.</span>
+            study. <span className="font-serif-it text-grad-warm">research.</span><br />
+            <span className="text-grad-hero">become.</span>
           </h1>
           <p className="mt-6 mx-auto max-w-xl text-sm sm:text-base text-muted-foreground leading-relaxed">
-            Nova University is a 50,000-strong, 120-country, 24-hour-buzzing campus where ideas, friendships and side-quests collide. Come build the future — and have a ridiculously good time doing it.
+            Founded in 1887, Nova University is a tier-one research institution where 42,000 students from 120 countries study across 6 faculties, 38 departments and 200+ degree programs — all on one absurdly alive campus.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <a href="#apply" className="rounded-full grad-hero text-white text-sm font-semibold px-6 py-3 hover:scale-[1.04] transition-transform shadow-[0_14px_30px_-8px_hsl(var(--magenta)/0.6)]">
+            <a href="#admissions" className="rounded-full grad-hero text-white text-sm font-semibold px-6 py-3 hover:scale-[1.04] transition-transform shadow-[0_14px_30px_-8px_hsl(var(--magenta)/0.6)]">
               Start your application →
             </a>
-            <a href="#tour" className="rounded-full glass-tint text-ink text-sm font-semibold px-6 py-3 hover:scale-[1.04] transition-transform">
+            <a href="#tour" className="rounded-full liquid-glass text-ink text-sm font-semibold px-6 py-3 hover:scale-[1.04] transition-transform">
               ▶ Take the virtual tour
             </a>
           </div>
 
-          <div className="mt-10 grid grid-cols-3 gap-3 sm:gap-4 max-w-xl mx-auto">
+          <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 max-w-2xl mx-auto">
             {[
-              { n: "50K+", l: "students" },
+              { n: "42K", l: "students" },
               { n: "120", l: "countries" },
               { n: "200+", l: "programs" },
+              { n: "9", l: "Nobel laureates" },
             ].map((s) => (
-              <div key={s.l} className="glass-tint rounded-2xl px-3 py-3 text-center">
+              <div key={s.l} className="liquid-glass rounded-2xl px-3 py-3 text-center">
                 <div className="font-display font-bold text-2xl sm:text-3xl text-grad-hero">{s.n}</div>
-                <div className="text-[11px] uppercase tracking-wider text-muted-foreground">{s.l}</div>
+                <div className="text-[10.5px] uppercase tracking-wider text-muted-foreground">{s.l}</div>
               </div>
             ))}
           </div>
